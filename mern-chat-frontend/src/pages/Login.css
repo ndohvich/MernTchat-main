@@ -1,0 +1,13 @@
+.login__bg{
+    background-image: url(../assets/login.png);
+    height: 92vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+Form{
+    width: 80%;
+    max-width: 500;
+}
