@@ -8,13 +8,13 @@ import "./Signup.css";
 import botImg from "../assets/bot.jpg";
 
 function Signup() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   //image upload states
   const [image, setImage] = useState(null);
-  const [uploadingImg, setUploadingImg] = useState(false);
+  const [upladingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
   function validateImg(e){
@@ -28,24 +28,24 @@ function Signup() {
     }
   }
 
-  async function uploadImage(){
+  async function uploadImage() {
     const data = new FormData();
-    data.append('file', image);
-    data.append('upload_preset', 'dtjkdhoh');
-    try{
-      setUploadingImg(true);
-      let res = await fetch('https://api.cloudinary.com/v1_1/learn-code-10/image/upload', {
-        methode: 'POST',
-        body: data,
-      })
-      const urlData = await res.json();
-      setUploadingImg(false);
-      return urlData.url
-    } catch(error) {
-      setUploadingImg(false);
-      console.log(error);
+    data.append("file", image);
+    data.append("upload_preset", "fylwdbxy");
+    try {
+        setUploadingImg(true);
+        let res = await fetch("https://api.cloudinary.com/v1_1/dtyaqauqu/image/upload", {
+            method: "post",
+            body: data,
+        });
+        const urlData = await res.json();
+        setUploadingImg(false);
+        return urlData.url;
+    } catch (error) {
+        setUploadingImg(false);
+        console.log(error);
     }
-  }
+}
 
   async function handleSignup(e){
     e.preventDefault();
@@ -58,7 +58,7 @@ function Signup() {
     <Container>
       <Row>
           <Col md={7} className="d-flex align-items-center justify-content-center flex-direction-column">
-            <Form onSubmit={handleSignup}>
+            <Form style={{width: "80%", maxWidth: 500}} onSubmit={handleSignup}>
               <div className="signup-profile-pic__container">
                 <img src={ imagePreview || botImg } class="signup-profile-pic"/>
                 <label htmlFor="image-upload" className="image-upload-label">
@@ -98,4 +98,4 @@ function Signup() {
   );
 }
 
-export default Signup
+export default Signup;

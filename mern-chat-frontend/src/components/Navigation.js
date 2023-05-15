@@ -1,11 +1,11 @@
 import React from 'react'
-import {Nav, Navbar, Container, Button, NavDropdown } from "react-bootstrap";
+import {Nav, Navbar, Container} from "react-bootstrap";
 import {LinkContainer} from 'react-router-bootstrap';
 import logo from "../assets/logo.png";
 
 function Navigation() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="sm">
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
