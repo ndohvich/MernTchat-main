@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import {useLoginUserMutation} from '../services/appApi';
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
+import {AppContext} from "../context/appContext";
 
 function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const {socket} = useContext(AppContext);
   const [loginUser, {isLoading, error}] = useLoginUserMutation();
   
   function handleLogin(e){
