@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { Col, Row, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Col, Row, Container, Form, Button } from "react-bootstrap";
+import {useLoginUserMutation} from '../services/appApi';
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
+  const [loginUser, {isLoading, error}] = useLoginUserMutation();
+  
   function handleLogin(e){
     e.preventDefault();
-    
+    loginUser({email, password}).then(({data}) => {
+      if(data){
+        navigate("/chat");
+      }
+    })  
   }
 
   return (
@@ -20,7 +25,7 @@ function Login() {
       <Row>
         <Col md={5} className="login__bg"></Col>
           <Col md={7} className="d-flex align-items-center justify-content-center flex-direction-column">
-            <Form>
+            <Form style={{width: "80%", maxWidth: 500}} onSubmit={handleLogin}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} value={email} />

@@ -1,0 +1,8 @@
+.message-output{
+    margin-top: 20px;
+    height: 80vh;
+    background-color: lightgray;
+    overflow-y:hidden;
+    border-radius: 1%;
+    margin-bottom: 10px;
+}
