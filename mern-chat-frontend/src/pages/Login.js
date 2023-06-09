@@ -17,6 +17,7 @@ function Login() {
     e.preventDefault();
     loginUser({email, password}).then(({data}) => {
       if(data){
+        socket.emit('new-user')
         navigate("/chat");
       }
     })  

@@ -42,7 +42,9 @@ function Navigation() {
                 </>
               } id="basic-nav-dropdown">
                 <NavDropdown.Item>
-                  <Button variant="danger onClick ={handleLogout}">Logout</Button>
+                  <Button variant="danger" onClick ={handleLogout}>
+                    Logout
+                  </Button>
                 </NavDropdown.Item>
               </NavDropdown>
             )}
