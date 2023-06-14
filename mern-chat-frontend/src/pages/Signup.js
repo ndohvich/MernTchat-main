@@ -73,6 +73,7 @@ function Signup() {
                 </label>
                 <input type="file" id="image-upload" hidden accept="image/png, image/jpeg" onChange={validateImg} />
               </div>
+              {error && <p className="alert alert-danger">{error.data}</p>}
               <h1 className="text-center">Create Account</h1>
               <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
@@ -90,7 +91,7 @@ function Signup() {
                 <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
               </Form.Group>
               <Button variant="success" type="submit">
-                Create Account
+                {upladingImg || isLoading ? "Signing you up..." : "Signup"}
               </Button>
               <div className="py-4">
                 <p className="text-center">
